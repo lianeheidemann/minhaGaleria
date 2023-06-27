@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+  <style>
+    body {
+      background: linear-gradient(45deg, #49a09d, #5f2c82);
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    input[type=button], input[type=text], input[type=password] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 12px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    section {
+      background-color: rgba(255,255,255,0.3);
+      box-shadow: 0 0 20px  rgba(0,0,0,0.1);
+      border-radius: 1em;
+      padding: 1em;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-right: -50%;
+      transform: translate(-50%, -50%) 
+    }
+    button:hover {
+      opacity: 0.8;
+    }
+    .imgcontainer {
+      text-align: center;
+      margin: 10px 0 12px 0;
+    }
+    img.avatar {
+      width: 40%;
+      border-radius: 50%;
+    }
+    .container {
+      max-width:300px;
+      padding: 10px;
+      background-color: rgba(255,255,255,0.2);
+      box-shadow: 0 0 20px  rgba(0,0,0,0.1);
+    }
+    #direcaoRight {
+      display: flex;
+      justify-content: right;
+    }
+  </style>
+  <script>
+    function cadastrar() {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      localStorage.setItem("username", username);
+      localStorage.setItem("password", password);
+
+      if(username!="" && password!=""){
+        var confirmado = window.confirm("Cadastro efetuado com sucesso!\nVocê será redirecinado para fazer o Login");
+        window.location.href = "login.html";
+      }
+      else{
+        var confirmado = window.confirm("Campos de 'Usuario' ou 'Senha' não preenchidos!");
+      }
+    }
+  </script>
+</head>
+
+<body>
+    <section>
+        <h2><center>Cadastrar Novo Usuario</center></h2>
+        <form>
+        <div class="container">
+
+            <div class="imgcontainer">
+            <img src="Imagens/avatarNovoUser.png" alt="Avatar" class="avatar">
+            </div>
+
+            <label for="username">Usuario</label>
+            <input type="text" id="username" name="username" required>
+            <br>
+            <label for="senha">Senha:</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <input type="button" value="Cadastrar" onclick="cadastrar()">
+            
+            <center><text style="font-size:12px"><a href="login.html">Voltar para a Tela de Login</a></text></center>
+        </div> 
+        </form>
+    </section>
+</body>
+</html>

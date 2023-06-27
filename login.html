@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+  <style>
+    body {
+      background: linear-gradient(45deg, #49a09d, #5f2c82);
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    input[type=button], input[type=text], input[type=password] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 12px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    section {
+      background-color: rgba(255,255,255,0.3);
+      box-shadow: 0 0 20px  rgba(0,0,0,0.1);
+      border-radius: 1em;
+      padding: 1em;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-right: -50%;
+      transform: translate(-50%, -50%) 
+    }
+    .imgcontainer {
+      text-align: center;
+      margin: 10px 0 12px 0;
+    }
+    img.avatar {
+      width: 40%;
+      border-radius: 50%;
+    }
+    .container {
+      max-width:300px;
+      padding: 10px;
+      background-color: rgba(255,255,255,0.2);
+      box-shadow: 0 0 20px  rgba(0,0,0,0.1);
+    }
+    #direcaoRight {
+      display: flex;
+      justify-content: right;
+    }
+  </style>
+  <script>
+    var username = localStorage.getItem("username");
+    var password = localStorage.getItem("password");
+  
+    console.log("Login:", username);
+    console.log("Senha:", password);
+    
+    var achado = true
+    function logar(){
+      if (username === document.getElementById("username").value && password === document.getElementById("password").value) {
+        var confirmado = window.confirm("Login bem-sucedido!");
+        achado = false
+        if (confirmado) {
+          window.location.href = "galeria.html";
+        }
+      }
+      if(achado){window.confirm("Informações incorretas ou ausentes!");}
+    }
+  </script>
+  
+</head>
+
+<body>
+  <section>
+    <h2><center>Fazer Login</center></h2>
+    <form>
+      <div class="container">
+
+          <div class="imgcontainer">
+            <img src="Imagens/avatar.png" alt="Avatar" class="avatar">
+          </div>
+
+          <label for="username">Usuario:</label>
+          <input type="text" id="username" name="username" required>
+          <br>
+          <label for="senha">Senha:</label>
+          <input type="password" id="password" name="password" required>
+          <br>
+          <input type="button" value="Entrar" onclick="logar()">
+        
+          <center><text style="font-size:12px"><span>Ainda não tem <a href="cadastrar.html">cadastro</a>?</span></text></center>
+      </div> 
+    </form>    
+  </section>
+</body>
+</html>
